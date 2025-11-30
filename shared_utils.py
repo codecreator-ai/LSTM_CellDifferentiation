@@ -68,21 +68,26 @@ Violin plotting same from notebook
 """
 
 def plot_before_filtering(adata):
-    print("Violin plotting of data before filtering:")
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5)) 
+    print("Plotting before filtering...")
 
-    sc.pl.violin(adata, 'n_genes_by_counts', jitter=0.4, ax=axes[0])
-    axes[0].set_title('Genes per cell')
+    # First plot
+    sc.pl.violin(
+        adata,
+        'n_genes_by_counts',
+        jitter=0.4
+    )
 
-    sc.pl.violin(adata, 'total_counts', jitter=0.4, ax=axes[1])
-    axes[1].set_title('Total counts per cell')
-
-    plt.tight_layout()
-    plt.show()
+    # Second plot
+    #sc.pl.violin(
+    #    adata,
+    #    'total_counts',
+    #    jitter=0.4
+    #)
 
 """
 Doing normal filtering, normalization, log transformation, and HVG (Highly variable genes) selection
 """
+
 def preprocess_data(adata, min_genes=500, max_genes=12000, min_cells=3, target_sum=1e4, n_top_genes=2000):
     print("Starting data preprocessing")
     print("Filtering cells and genes\n")
@@ -106,6 +111,7 @@ def preprocess_data(adata, min_genes=500, max_genes=12000, min_cells=3, target_s
 """
 Create matrix of genes and times so that it is easy to split by genes or by timepoints. It just simplifies everything, so I decided to keep this from my notebook
 """
+
 def create_gene_time_matrix(adata):
     print("Creating gene-time matrix")
     time_points = sorted(adata.obs['timepoint'].unique())
@@ -121,7 +127,7 @@ def create_gene_time_matrix(adata):
             avg_expression = avg_expression.A1
         gene_time_matrix[:, i] = avg_expression
         print(f"  Expression data shape: {expression_at_time.shape}")
-        print(f"  Sample values: {avg_expression[:3]}...")  # show first 3 genes
+        print(f"  First three values in row: {avg_expression[:3]}...")  # show first 3 genes
         print()
 
     print(f"Gene-time matrix fully created with shape: {gene_time_matrix.shape}")
