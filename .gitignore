@@ -1,4 +1,5 @@
 # Byte-compiled / optimized / DLL files
+Gene_based_modelLSTM.py
 .DS_Store
 __pycache__/
 *.py[codz]
