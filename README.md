@@ -87,4 +87,10 @@ Visual outputs include training/validation loss curves, prediction vs actual plo
 
 # Research Paper
 
-Please see the research paper [here](/Reser
+Please see the research paper as the pdf file in the repo. It has additional information on the code and took a lot of time to write!
+
+# Acknowledgements
+
+This was all made possible thanks to the Lumiere Research Scholar Program! My amazing mentor Valerio Galanti and I worked on this project all summer, and I really learned a lot about neural networks, and am very exited to continue my learning further into deep learning and AI. Additionally, this project uses publicly available data from GEO (GSE75748).
+
+
