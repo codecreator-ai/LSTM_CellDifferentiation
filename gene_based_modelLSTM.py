@@ -47,7 +47,7 @@ def main():
     lstm_model = build_lstm_model(input_shape, output_size)
     ff_model = build_feedforward_model(input_shape, output_size)
     
-    print("\n--- Training LSTM Model ---")
+    print("\nTraining LSTM Model")
     lstm_history = lstm_model.fit(
         X_train, y_train,
         validation_data=(X_val, y_val),
