@@ -1,7 +1,7 @@
-# Cell Diff
+# LSTM_CellDifferentiation
 
 # Overview
-Cell Diff contains reproducible experiments for forecasting cellular differentiation from single-cell time-course data. The repository includes two analysis flows:
+LSTM_CellDifferentiation contains reproducible experiments for forecasting cellular differentiation from single-cell time-course data. The repository includes two analysis flows:
 
 Cell-based forecasting (cell_based.ipynb) — model that forecasts and predicts the future state of a cell during cellular differentiation based on it's previous states.
 
