@@ -27,12 +27,64 @@ pip install -r requirements.txt
 ```
 
 # Usage 
+### The experiments are available as interactive notebooks:
 
-The experiments are made available on jupyter notebooks: [cell-based](/cell_based.ipynb) and [gene-based](/gene_based_modelLSTM.py).
+Cell-based notebook: [cell-based](/cell_forecasting_model.ipynb)
+
+Gene-based script: [gene-based](/gene_based_model.ipynb)
+
+### Running the notebooks:
+
+Open the notebook with Jupyter Lab or Jupyter Notebook:
+
+```bash
+jupyter lab
+# or
+jupyter notebook
+```
+Then open cell_based.ipynb in the browser and run the cells sequentially. The notebook is structured with explanatory markdown cells before each code block, so you can run it top to bottom.
 
 # Data
 
-The data for this experiment can be found on this GSE link [GSE75748_sc_time_course_ec.csv.gz](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE75748)
+The data used in these experiments is publicly available from GEO:
+
+GSE75748 (single-cell time-course dataset)
+Download link:
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE75748
+
+A convenient direct data workflow (example):
+
+```bash
+# create data directory
+mkdir -p data
+cd data
+
+# download the GEO supplementary file (example — use the link for the raw CSV/gz you need)
+wget -O GSE75748_sc_time_course_ec.csv.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE75nnn/GSE75748/suppl/GSE75748_sc_time_course_ec.csv.gz"
+
+# decompress
+gunzip GSE75748_sc_time_course_ec.csv.gz
+```
+### Important file placement recommendation
+
+Place the dataset where the notebook expects to find it (recommended path in repo):
+
+```bash
+/data/GSE75748_sc_time_course_ec.csv
+```
+
+# Metrics and Outputs
+
+The notebooks report:
+
+ - RMSE (root mean squared error): same units as the data, sensitive to large errors.
+
+ - MAE (mean absolute error): average absolute error, easy to interpret.
+
+ - R²: proportion of variance explained (1 is perfect, 0 equals baseline mean predictor, negative is worse than baseline).
+
+Visual outputs include training/validation loss curves, prediction vs actual plots, error histograms, and final bar charts comparing LSTM vs feedforward performance.
 
 # Research Paper
 
+Please see the research paper [here](/Reser
